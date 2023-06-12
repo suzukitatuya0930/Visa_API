@@ -12,35 +12,34 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.model.RegisterModel;
+import com.example.demo.model.AdminAddModel;
 import com.example.demo.model.response.ResponseModel;
-import com.example.demo.service.RegisterService;
+import com.example.demo.service.AdminAddService;
 
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @Slf4j
 @CrossOrigin
-public class RegisterController {
-
+public class AdminAddController {
 	
-	@Resource RegisterService registerService;
-	@PostMapping("/register")
-	public ResponseEntity<?> register(@RequestBody RegisterModel registerModel,ResponseModel responseModel) {
+	@Resource AdminAddService adminAddService;
+	@PostMapping("/adminadd")
+	public ResponseEntity<?> register(@RequestBody AdminAddModel adminAddModel,ResponseModel responseModel) {
 		
 		try 
 		{
 			  String password = generateRandomPassword(8);
 	        
 	        // パスワードをregisterModelにセット
-			  registerModel.setPassword(password);
+			  adminAddModel.setPassword(password);
       
         	
-	        registerService.register(registerModel);
+			  adminAddService.adminAdd(adminAddModel);
 	        responseModel.setCode(200);
 	        responseModel.setStatus("OK");
 	        responseModel.setInformation("登録できました");
-	        responseModel.setRegisterData(registerModel);
+	        responseModel.setAdminAddData(adminAddModel);
 	        
 	        log.info("{}",responseModel);
 	        return ResponseEntity.status(HttpStatus.OK).body(responseModel);
@@ -50,7 +49,7 @@ public class RegisterController {
 			responseModel.setCode(400);
 			responseModel.setStatus("ERROR");
 			responseModel.setInformation("既に登録されたメールアドレスです");
-			responseModel.setRegisterData(registerModel);
+			responseModel.setAdminAddData(adminAddModel);
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseModel);
 		} catch (Exception ex) {
 			// その他の例外が発生した場合の処理
@@ -72,4 +71,5 @@ public class RegisterController {
 	    
 	    return sb.toString();
 	}
+
 }

@@ -2,11 +2,12 @@ package com.example.demo.model;
 
 import java.sql.Date;
 
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
+import lombok.Data;
 @Data
-public class RegisterModel {
-	
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class UserListModel {
 	
 	 private String email;
 	 private String first_name;
@@ -17,10 +18,9 @@ public class RegisterModel {
 	 private String last_name_kana;
 	 private String first_name_kanzi;
 	 private String last_name_kanzi;
-	 private String visatype_id;
+	 private String visatype_name;
 	 private Date visa_date;
-	 private String country_id;
-	 private String password;
-	 private String role_id;
+	 private String country_name;
+	 private String role_name;
 
 }
