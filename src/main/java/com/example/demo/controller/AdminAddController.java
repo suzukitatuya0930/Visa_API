@@ -25,7 +25,7 @@ public class AdminAddController {
 	
 	@Resource AdminAddService adminAddService;
 	@PostMapping("/adminadd")
-	public ResponseEntity<?> register(@RequestBody AdminAddModel adminAddModel,ResponseModel responseModel) {
+	public ResponseEntity<?> adminAdd(@RequestBody AdminAddModel adminAddModel,ResponseModel responseModel) {
 		
 		try 
 		{

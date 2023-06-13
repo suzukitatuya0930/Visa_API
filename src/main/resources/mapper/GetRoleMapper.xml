@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.GetRoleMapper">
+
+    <select id="getRole" resultType="com.example.demo.model.GetRoleModel" >
+   		SELECT  role_id,role_name FROM role_master WHERE role_name  LIKE  '%ADMIN'  AND delete_flag = 0;
+    </select>
+
+</mapper>
+
