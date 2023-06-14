@@ -25,6 +25,7 @@ public class RegisterController {
 
 	
 	@Resource RegisterService registerService;
+	//一般ユーザー新規登録機能
 	@PostMapping("/register")
 	public ResponseEntity<?> register(@RequestBody RegisterModel registerModel,ResponseModel responseModel) {
 		

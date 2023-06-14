@@ -21,7 +21,7 @@ public class GetRoleController {
 	
 
 	@Resource GetRoleService getRoleService;
-	
+	//roleマスターテーブル取得
 	@GetMapping("/getrole")
 	 public  ResponseEntity<?>getRole(GetRoleModel getRoleModel){
 		

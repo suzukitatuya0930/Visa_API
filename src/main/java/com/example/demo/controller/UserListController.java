@@ -19,7 +19,7 @@ import lombok.extern.slf4j.Slf4j;
 @CrossOrigin
 public class UserListController {
 	@Resource UserListService userListService;
-	
+	//ユーザー一覧表示
 	@GetMapping("/userlist")
 	public ResponseEntity<?> userList(UserListModel userListModel){
 		//管理者チェック

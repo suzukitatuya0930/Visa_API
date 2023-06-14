@@ -22,7 +22,7 @@ public class LoginController {
 	
 	
 	@Resource LoginService loginService;
-	
+	//ログイン機能
 	@PostMapping("/login")
 	public ResponseEntity<?> login(@RequestBody  LoginModel loginModel,ResponseModel responseModel) {
 		String email = loginModel.getEmail();

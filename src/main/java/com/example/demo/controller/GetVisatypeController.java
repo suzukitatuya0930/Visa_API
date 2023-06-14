@@ -21,6 +21,7 @@ public class GetVisatypeController {
 	
 	@Resource GetVisatypeService getVisaTypeService;
 	
+	//ビザ資格マスターテーブル取得
 	@GetMapping("/getvisatype")
 	public  ResponseEntity<?>getVisatype(GetVisatypeModel getVisaTypeModel){
 		

@@ -25,6 +25,7 @@ public class AdminAddController {
 	
 	@Resource AdminAddService adminAddService;
 	@PostMapping("/adminadd")
+	//管理者追加機能
 	public ResponseEntity<?> adminAdd(@RequestBody AdminAddModel adminAddModel,ResponseModel responseModel) {
 		
 		try 
