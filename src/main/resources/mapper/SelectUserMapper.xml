@@ -5,12 +5,14 @@
 <mapper namespace="com.example.demo.mapper.SelectUserMapper">
 
     <select id="selectUser" resultType="com.example.demo.model.SelectUserModel" >
-   		SELECT email,first_name,middle_name,last_name,first_name_kana,middle_name_kana,
+   			SELECT visa_user_info.email,first_name,middle_name,last_name,first_name_kana,middle_name_kana,
 		last_name_kana,first_name_kanzi,last_name_kanzi,visa_date,country_name,visatype_name
 		FROM visa_user_info
 		INNER JOIN country_master ON visa_user_info.country_id = country_master.country_id
 		INNER JOIN visatype_master ON visa_user_info.visatype_id = visatype_master.visatype_id
-		WHERE visa_user_info.delete_flag = 0 AND email = #{email};
+        INNER JOIN visa_login on visa_user_info.email = visa_login.email
+		WHERE visa_login.delete_flag = 0 AND visa_user_info.email = #{email};
+
     </select>
     
 
