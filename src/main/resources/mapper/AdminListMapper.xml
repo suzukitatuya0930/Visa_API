@@ -10,7 +10,7 @@
     
     <select id="adminList" resultType="com.example.demo.model.AdminListModel" >
     
-	    SELECT visa_admin_info.email,first_name,middle_name,last_name, role_name
+  		SELECT visa_admin_info.email,first_name,middle_name,last_name, role_name
 		
 		FROM visa_admin_info
         
@@ -20,8 +20,7 @@
         INNER JOIN role_master
 		ON visa_login.role_id = role_master.role_id
         
-		WHERE visa_admin_info.delete_flag = 0;
-
+		WHERE visa_login.delete_flag = 0;
 
     </select>
     

@@ -30,7 +30,7 @@ public class AdminAddController {
 	public ResponseEntity<?> adminAdd(@RequestBody AdminAddModel adminAddModel,ResponseModel responseModel) {
 		
 		try 
-		{
+			{
 			  String password = generateRandomPassword(8);
 	        
 	        // パスワードをregisterModelにセット

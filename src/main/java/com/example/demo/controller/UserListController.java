@@ -20,27 +20,20 @@ public class UserListController {
 	//ユーザー一覧表示
 	@GetMapping("/userlist")
 	public ResponseEntity<?> userList(UserListModel userListModel){
-		//管理者チェック
-		 List<UserListModel> admincheck = userListService.adminCheck(userListModel);
-		    boolean isAdmin = admincheck.stream().anyMatch(u -> "ADMIN".equals(u.getRole_name()) || "LEADERADMIN".equals(u.getRole_name()));
-		    if (isAdmin) 
-		    	{
-		        List<UserListModel> userList = userListService.userList(userListModel);
-		        	return ResponseEntity.ok(userList);
-		    	}  else {
-		            return ResponseEntity.status(400).body("ERROR");
-		        }
-		           
-		      
-		        
-		    	
 		
-
+		List<UserListModel> userList = userListService.userList(userListModel);
+		       return ResponseEntity.ok(userList);
+		    
 	}
-		
-	
-	
 }
+	
+
+
+
+
+	
+	
+
 
 	
 	

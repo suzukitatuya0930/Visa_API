@@ -22,5 +22,8 @@ public class UserListModel {
 	 private Date visa_date;
 	 private String country_name;
 	 private String role_name;
+	 
+	 
+	  
 
 }
