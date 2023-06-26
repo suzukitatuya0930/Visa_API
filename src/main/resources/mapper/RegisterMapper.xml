@@ -18,6 +18,8 @@ VALUES (
 INSERT INTO visa_login(email,password,role_id)VALUES(#{email},#{password},'R01');
     </insert>
  
+ 	
+ 
     <select id="checkEmailExists" resultType="boolean">
         SELECT COUNT(*) > 0
         FROM visa_user_info
