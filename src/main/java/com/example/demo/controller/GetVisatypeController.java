@@ -12,10 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.model.GetVisatypeModel;
 import com.example.demo.service.GetVisatypeService;
 
-import lombok.extern.slf4j.Slf4j;
-
 @RestController
-@Slf4j
+
 @CrossOrigin
 public class GetVisatypeController {
 	
@@ -24,7 +22,7 @@ public class GetVisatypeController {
 	//ビザ資格マスターテーブル取得
 	@GetMapping("/getvisatype")
 	public  ResponseEntity<?>getVisatype(GetVisatypeModel getVisaTypeModel){
-		
+		//getVisaTypeService.getVisatype
 		List<GetVisatypeModel> visaTypeList = getVisaTypeService.getVisatype(getVisaTypeModel);
 		return ResponseEntity.ok(visaTypeList);
 		

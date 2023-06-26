@@ -43,7 +43,7 @@ public class RegisterController {
 	        responseModel.setInformation("登録できました");
 	        responseModel.setRegisterData(registerModel);
 	        
-	        log.info("{}",responseModel);
+	       
 	        return ResponseEntity.status(HttpStatus.OK).body(responseModel);
 		} catch (DuplicateFormatFlagsException ex) {
 			// メールアドレスが重複している場合の処理

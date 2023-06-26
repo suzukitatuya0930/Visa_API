@@ -13,19 +13,19 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.model.GetCountryModel;
 import com.example.demo.service.GetCountryService;
 
-import lombok.extern.slf4j.Slf4j;
-
 @RestController
-@Slf4j
+
 @CrossOrigin
 public class GetCountryController {
 	
+	//インスタンス化
 	@Resource GetCountryService getCountryService;
 	//国籍マスターテーブル取得
 	@GetMapping("/getcountry")
 	 public  ResponseEntity<?>getCountry(GetCountryModel getCountryModel){
-		
+		//getCountryService.getCountryの呼び出し
 		List<GetCountryModel> countryList = getCountryService.getCountry(getCountryModel);
+		
 		
 		 return ResponseEntity.status(HttpStatus.OK).body(countryList);
 		

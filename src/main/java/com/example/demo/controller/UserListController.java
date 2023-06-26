@@ -12,10 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.model.UserListModel;
 import com.example.demo.service.UserListService;
 
-import lombok.extern.slf4j.Slf4j;
-
 @RestController
-@Slf4j
+
 @CrossOrigin
 public class UserListController {
 	@Resource UserListService userListService;
@@ -28,19 +26,22 @@ public class UserListController {
 		    if (isAdmin) 
 		    	{
 		        List<UserListModel> userList = userListService.userList(userListModel);
-		        if (userList.size() != 0) 
-		        {
-		            return ResponseEntity.ok(userList);
-		        } else {
+		        	return ResponseEntity.ok(userList);
+		    	}  else {
 		            return ResponseEntity.status(400).body("ERROR");
 		        }
+		           
+		      
 		        
-		    	} else {
-		    		return ResponseEntity.status(400).body("ERROR");
-		    	}
+		    	
 		
 
 	}
-	}
+		
+	
+	
+}
+
+	
 	
 

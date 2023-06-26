@@ -12,10 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.model.GetRoleModel;
 import com.example.demo.service.GetRoleService;
 
-import lombok.extern.slf4j.Slf4j;
-
 @RestController
-@Slf4j
+
 @CrossOrigin
 public class GetRoleController {
 	
@@ -24,7 +22,7 @@ public class GetRoleController {
 	//roleマスターテーブル取得
 	@GetMapping("/getrole")
 	 public  ResponseEntity<?>getRole(GetRoleModel getRoleModel){
-		
+		//getRoleService.getRoleの呼び出し
 		List<GetRoleModel> roleList = getRoleService.getRole(getRoleModel);
 		return ResponseEntity.ok(roleList);
 	

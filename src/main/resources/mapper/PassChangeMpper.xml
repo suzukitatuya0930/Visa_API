@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.PassChangeMapper">
+
+    <update id="passChange" parameterType="com.example.demo.model.PassChangeModel" >
+    
+        UPDATE visa_login SET password = #{newpassword} where email=#{email} AND password=#{password}  AND delete_flag= 0;
+    </update>
+	
+	<select id="selectUser" resultType="com.example.demo.model.PassChangeModel">
+        SELECT email,password FROM visa_login where email=#{email}  AND delete_flag= 0;
+    </select>
+    
+</mapper>

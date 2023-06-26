@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.AdminListMapper">
+
+    
+    
+
+    
+    <select id="adminList" resultType="com.example.demo.model.AdminListModel" >
+    
+	    SELECT visa_admin_info.email,first_name,middle_name,last_name, role_name
+		
+		FROM visa_admin_info
+        
+        INNER JOIN  visa_login 
+        on visa_admin_info.email =  visa_login.email
+        
+        INNER JOIN role_master
+		ON visa_login.role_id = role_master.role_id
+        
+		WHERE visa_admin_info.delete_flag = 0;
+
+
+    </select>
+    
+    <select id="adminCheck" resultType="com.example.demo.model.AdminListModel" >
+   		SELECT email,role_name  FROM visa_login 
+		INNER JOIN role_master
+		ON visa_login.role_id = role_master.role_id
+    </select>
+       
+</mapper>
+
+
+

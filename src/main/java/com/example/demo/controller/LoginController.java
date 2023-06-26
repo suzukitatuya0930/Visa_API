@@ -13,10 +13,8 @@ import com.example.demo.model.LoginModel;
 import com.example.demo.model.response.ResponseModel;
 import com.example.demo.service.LoginService;
 
-import lombok.extern.slf4j.Slf4j;
-
 @RestController
-@Slf4j
+
 @CrossOrigin
 public class LoginController {
 	

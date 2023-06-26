@@ -14,10 +14,8 @@ import com.example.demo.model.SelectUserModel;
 import com.example.demo.model.response.ResponseModel;
 import com.example.demo.service.SelectUserService;
 
-import lombok.extern.slf4j.Slf4j;
-
 @RestController
-@Slf4j
+
 @CrossOrigin
 public class SelectUserController {
 	@Resource
