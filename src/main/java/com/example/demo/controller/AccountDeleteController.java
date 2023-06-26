@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import javax.annotation.Resource;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +20,7 @@ public class AccountDeleteController {
 	
 	@PostMapping("/accountdelete/{email}")
 	public ResponseEntity<?> accountDelete(ResponseModel responseModel,AccountDeleteModel accountDeleteModel){
+		
 		int userDelete = accountDeleteService.accountDelete(accountDeleteModel);
 		
 		if(userDelete ==1) {
@@ -26,14 +28,17 @@ public class AccountDeleteController {
 			 responseModel.setCode(200);
 		     responseModel.setStatus("OK");
 			 responseModel.setInformation("削除できました");
-			return ResponseEntity.ok(responseModel);
+			 return ResponseEntity.status(HttpStatus.OK).body(responseModel);
 		}else if(userDelete!=1) {
-			responseModel.setInformation("削除できませんでした");
+			
+			responseModel.setCode(400);
 			responseModel.setStatus("ERROR");
+			responseModel.setInformation("削除できませんでした");
+			
 			
 		}
 		
-		return ResponseEntity.status(400).body(responseModel);
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseModel);
 		
 	}
 }
