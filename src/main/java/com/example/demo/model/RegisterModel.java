@@ -63,8 +63,9 @@ public class RegisterModel {
 	 @Future(message = "{Future.message}")
 	 @DateTimeFormat(pattern = "yyyy-MM-dd")
 	 
-	 @NotEmpty(message = "{NotEmpty.message}")
 	 private Date visa_date;
+	 
+	 @NotEmpty(message = "{NotEmpty.message}")
 	 private String country_id;
 	 private String password;
 	 private String role_id;
