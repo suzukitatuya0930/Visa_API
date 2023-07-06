@@ -11,6 +11,7 @@ import com.example.demo.model.PassChangeModel;
 import com.example.demo.service.PassChangeService;
 
 @Service
+
 public class PassChangeServiceImpl implements PassChangeService{
 	
 	@Resource PassChangeMapper passChangeMapper;
@@ -19,14 +20,14 @@ public class PassChangeServiceImpl implements PassChangeService{
 	
 	
 	@Override
-	public int passChange(PassChangeModel passChangeModel) {
-		// TODO 自動生成されたメソッド・スタブ
-		return passChangeMapper.passChange(passChangeModel);
-	} 
-	@Override
 	public List<PassChangeModel> selectUser(PassChangeModel passChangeModel) {
 		// TODO 自動生成されたメソッド・スタブ
 		return passChangeMapper.selectUser(passChangeModel);
+	}
+	@Override
+	public int passChange(PassChangeModel passChangeModel) {
+		// TODO 自動生成されたメソッド・スタブ
+		return passChangeMapper.passChange(passChangeModel);
 	}
 
 	

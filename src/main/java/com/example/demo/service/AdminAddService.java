@@ -6,4 +6,6 @@ public interface AdminAddService {
 	
 	Object adminAdd(AdminAddModel adminAddrModel);
 
+	
 }
+

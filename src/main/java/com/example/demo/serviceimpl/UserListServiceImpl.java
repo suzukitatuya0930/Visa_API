@@ -23,11 +23,7 @@ public class UserListServiceImpl implements UserListService {
     }
 
 	
-	@Override
-	public List<UserListModel> adminCheck(UserListModel userListModel) {
-		// TODO 自動生成されたメソッド・スタブ
-		 return userListMapper.adminCheck(userListModel);
-	}
+	
 	
 }
 

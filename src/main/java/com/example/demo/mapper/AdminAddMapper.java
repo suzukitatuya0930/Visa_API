@@ -11,6 +11,7 @@ public interface AdminAddMapper {
 	
 	int adminAdd(AdminAddModel adminAddModel);
 	
-	boolean checkEmailExists(String email);
+	
 
 }
+

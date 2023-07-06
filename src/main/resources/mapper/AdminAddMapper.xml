@@ -5,19 +5,17 @@
 <mapper namespace="com.example.demo.mapper.AdminAddMapper">
 
 
-    
-       <insert id="adminAdd" parameterType="com.example.demo.model.AdminAddModel" >
+
+	 <insert id="adminAdd" parameterType="com.example.demo.model.AdminAddModel" >
    		INSERT INTO visa_admin_info(email, first_name, middle_name, last_name) 
    		VALUES (#{email},#{first_name},#{middle_name},#{last_name});
 
 		INSERT INTO visa_login(email,password,role_id)VALUES(#{email},#{password},#{role_id});
     </insert>
- 
-    <select id="checkEmailExists" resultType="boolean">
-        SELECT COUNT(*) > 0
-        FROM visa_user_info
-        WHERE email = #{email}
-    </select>
+
+
+	
+	
 </mapper>
 
 

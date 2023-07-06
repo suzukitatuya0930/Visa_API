@@ -20,12 +20,7 @@
 
     </select>
     
-    <select id="adminCheck" resultType="com.example.demo.model.UserListModel" >
-   		SELECT email,role_name  FROM visa_login 
-		INNER JOIN role_master
-		ON visa_login.role_id = role_master.role_id
-		WHERE email = #{email};
-    </select>
+    
        
 </mapper>
 

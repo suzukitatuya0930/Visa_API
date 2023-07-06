@@ -13,6 +13,6 @@ public interface UserListMapper {
 	
 	List<UserListModel>userList(UserListModel userListModel);
 
-	List<UserListModel> adminCheck(UserListModel userListModel);
+	
 
 }

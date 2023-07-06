@@ -1,7 +1,5 @@
 package com.example.demo.serviceimpl;
 
-import java.util.DuplicateFormatFlagsException;
-
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -19,12 +17,10 @@ public class AdminAddServiceImpl implements AdminAddService {
 	@Override
 	public Object adminAdd(AdminAddModel adminAddModel) {
 	        // メールアドレスの重複チェック
-	        boolean emailExists = adminAddMapper.checkEmailExists(adminAddModel.getEmail());
-	        if (emailExists) {
-	            throw new DuplicateFormatFlagsException("既に登録されたメールアドレスです");
-	        }
+	       
 	        // ユーザーの登録
 	        return adminAddMapper.adminAdd(adminAddModel);
 	    }
 
+	
 }

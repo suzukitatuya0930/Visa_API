@@ -4,11 +4,13 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.com.ApiResponse;
+import com.example.demo.com.ExceptionHandler;
+import com.example.demo.com.ResponseCode;
 import com.example.demo.model.AdminListModel;
 import com.example.demo.service.AdminListService;
 
@@ -16,26 +18,33 @@ import com.example.demo.service.AdminListService;
 
 @CrossOrigin
 public class AdminListController {
-	
+
 	//インスタンス化
 	@Resource AdminListService adminListService;
 	//管理者の一覧を表示
 	@GetMapping("/adminlist")
-	public ResponseEntity<?> adminList(AdminListModel adminListModel){
-		//adminListService.adminListの呼び出し
-		List<AdminListModel> admincheck = adminListService.adminCheck(adminListModel);
-		boolean isAdmin = admincheck.stream().anyMatch(u -> "ADMIN".equals(u.getRole_name()) || "LEADERADMIN".equals(u.getRole_name()));
-		if (isAdmin) 
-			{
-		    List<AdminListModel> adminList = adminListService.adminList(adminListModel);
-		    	return ResponseEntity.ok(adminList);
-			}  else {
-		        return ResponseEntity.status(400).body("ERROR");
-	 
-	
+	public ApiResponse<?> adminList(AdminListModel adminListModel){
+		try {
 
-}
-}
+
+			List<AdminListModel> adminList = adminListService.adminList(adminListModel);
+
+
+			if (adminList != null) {
+
+				return ApiResponse.data(ResponseCode.SUCCESS,adminList);
+			}else {
+
+				return ApiResponse.code(ResponseCode.NOT_FOUND);
+			}
+
+		}catch (Exception ex) {
+
+
+			return ExceptionHandler.handleException(ex);
+		}
+
+	}
 }
 
 

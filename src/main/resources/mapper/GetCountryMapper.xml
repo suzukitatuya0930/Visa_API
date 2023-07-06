@@ -5,7 +5,8 @@
 <mapper namespace="com.example.demo.mapper.GetCountryMapper">
 
     <select id="getCountry" resultType="com.example.demo.model.GetCountryModel" >
-   		SELECT  country_id,country_name FROM country_master WHERE delete_flag = 0;
+   		SELECT  country_id,country_name FROM country_master WHERE delete_flag = 0
+   		order by country_name ASC;
     </select>
 
 </mapper>

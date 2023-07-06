@@ -1,7 +1,5 @@
 package com.example.demo.serviceimpl;
 
-import java.util.DuplicateFormatFlagsException;
-
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -14,17 +12,15 @@ import com.example.demo.service.RegisterService;
 public class RegisterServiceImpl implements RegisterService {
 	
 	@Resource
-	RegisterMapper mapper;
+	RegisterMapper registerMapper;
 	
 	@Override
 	 public Object register(RegisterModel registerModel) {
-	        // メールアドレスの重複チェック
-	        boolean emailExists = mapper.checkEmailExists(registerModel.getEmail());
-	        if (emailExists) {
-	            throw new DuplicateFormatFlagsException("既に登録されたメールアドレスです");
-	        }
-	        // ユーザーの登録
-	        return mapper.register(registerModel);
+	      
+	        return registerMapper.register(registerModel);
 	    }
 
+	
+	
+	
 }
